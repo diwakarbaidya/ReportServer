@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Campaign {
+public class CampaignReport {
 
     private String campaignId;
     private int numberOfClicks;

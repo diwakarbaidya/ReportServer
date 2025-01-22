@@ -1,7 +1,7 @@
 package com.example.reportserver.service;
 
-import com.example.campaign.model.Campaign;
-import com.example.campaign.util.FileReaderUtil;
+import com.example.reportserver.model.Campaign;
+import com.example.reportserver.util.FileReaderUtil;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,11 +10,18 @@ import java.util.List;
 public class CampaignReportService {
     private final FileReaderUtil fileReaderUtil;
 
-    public CampaignService(FileReaderUtil fileReaderUtil) {
+    public CampaignReportService(FileReaderUtil fileReaderUtil) {
         this.fileReaderUtil = fileReaderUtil;
     }
 
     public List<Campaign> getAllCampaigns() {
-        return fileReaderUtil.readCampaignData();
+        logger.info("Fetching all campaign data from file.");
+        List<CampaignReport> campaignReport = fileReaderUtil.readCampaignData();
+        if (campaignReport.isEmpty()) {
+            logger.warn("No campaigns found in the data file.");
+        } else {
+            logger.info("Successfully retrieved {} campaigns.", campaignReport.size());
+        }
+        return campaignReport;
     }
 }
