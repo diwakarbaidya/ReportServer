@@ -3,10 +3,12 @@ package com.example.reportserver;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.example.reportserver.service.CampaignReportService;
+
 @SpringBootApplication
-public class ReportserverApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(CampaignServiceApplication.class, args);
-    }
+public class ReportserverApplicationTests {
+	public static void main(String[] args) {
+		SpringApplication.run(CampaignReportService.class, args);
+	}
 }
 
